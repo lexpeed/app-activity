@@ -5,6 +5,7 @@ ENV PATH="$PNPM_HOME:$PATH"
 RUN corepack enable
 COPY package.json /app/package.json
 WORKDIR /app
+RUN corepack install
 
 FROM base AS deps
 COPY pnpm-lock.yaml .npmrc ./
