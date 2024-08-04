@@ -1,0 +1,5 @@
+include:
+  - project: "lexpeed/corporate/commontools/devops"
+    file: "/cicd/shared/gitlab_variables.yaml"
+  - project: "lexpeed/corporate/commontools/devops"
+    file: "/cicd/shared/gitlab_pipeline_do_doks_deploy_app.yaml"

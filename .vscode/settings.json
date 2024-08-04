@@ -1,0 +1,16 @@
+{
+  "parameterHints.hintingType": "variableOnly",
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "javascript.preferences.quoteStyle": "single",
+  "typescript.preferences.quoteStyle": "single",
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit"
+  },
+  "cSpell.words": [
+    "cicd",
+    "commontools",
+    "doks",
+    "nextjs",
+    "unoptimized"
+  ]
+}
