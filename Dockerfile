@@ -42,5 +42,5 @@ RUN --mount=type=cache,id=pnpm-store,target=/root/.local/share/pnpm/store \
   | grep -v "cross-device link not permitted\|Falling back to copying packages from store"
 EXPOSE 3000
 
-CMD ["pnpm", "serve"] # static files
+CMD ["/bin/bash", "-c", "pnpm serve"] # static files
 # CMD ["node", "server.js"] # dynamic files
