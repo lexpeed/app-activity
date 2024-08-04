@@ -1,6 +1,6 @@
 FROM node:20.14.0-slim AS base
 
-ENV PNPM_HOME="/pnpm"
+ENV PNPM_HOME="/root/.local/share/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 RUN corepack enable
 COPY package.json /app/package.json
