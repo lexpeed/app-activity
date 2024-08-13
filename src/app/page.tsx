@@ -1,95 +1,54 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+'use client';
+import { Flex, Input, Space, Typography } from 'antd';
+
+import { TopBarLayout } from '../components/TopBarLayout';
+import styles from './page.module.css';
+
+const { Title, Paragraph } = Typography;
+const { Search } = Input;
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
+    <TopBarLayout>
+      <Flex
+        className={styles.content}
+        vertical
+        justify="center"
+        align="center"
+        gap="middle"
+      >
+        <Title level={3}>
+          Encontre e compartilhe atividades com seus alunos e outros professores
+        </Title>
+
+        <Search placeholder="Ex: atividades de matemática" />
+
+        <div className="search-options">
+          <Title level={5}>ou busque por áreas do conhecimento</Title>
+
+          <Space>teste</Space>
+          {/* <AreaKnowledgeButton
+              text="Linguagens, Códigos e suas Tecnologias"
+              iconUrl="/images/languages.png"
             />
-          </a>
+            <AreaKnowledgeButton
+              text="Ciências da Natureza e suas Tecnologias"
+              iconUrl="/images/naturalsciences.png"
+            />
+            <AreaKnowledgeButton
+              text="Matemática e suas Tecnologias"
+              iconUrl="/images/math.png"
+            />
+            <AreaKnowledgeButton
+              text="Ciências Humanas e suas Tecnologias"
+              iconUrl="/images/humanscience.png"
+            /> */}
         </div>
-      </div>
+      </Flex>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      {/* </div> */}
+      {/* <FooterHomeLoggedOut /> */}
+      {/* </div> */}
+    </TopBarLayout>
   );
 }
