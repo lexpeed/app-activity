@@ -1,54 +1,33 @@
-'use client';
-import { Flex, Input, Space, Typography } from 'antd';
-
-import { TopBarLayout } from '../components/TopBarLayout';
-import styles from './page.module.css';
-
-const { Title, Paragraph } = Typography;
-const { Search } = Input;
+import { Button, Header } from "../components";
 
 export default function Home() {
   return (
-    <TopBarLayout>
-      <Flex
-        className={styles.content}
-        vertical
-        justify="center"
-        align="center"
-        gap="middle"
-      >
-        <Title level={3}>
+    <div>
+      <Header />
+      <div className="flex flex-col justify-center items-center gap-8 my-8 mx-auto w-full max-w-screen-md">
+        <h3 className="text-center text-2xl text-gray-800">
           Encontre e compartilhe atividades com seus alunos e outros professores
-        </Title>
-
-        <Search placeholder="Ex: atividades de matemática" />
-
-        <div className="search-options">
-          <Title level={5}>ou busque por áreas do conhecimento</Title>
-
-          <Space>teste</Space>
-          {/* <AreaKnowledgeButton
-              text="Linguagens, Códigos e suas Tecnologias"
-              iconUrl="/images/languages.png"
-            />
-            <AreaKnowledgeButton
-              text="Ciências da Natureza e suas Tecnologias"
-              iconUrl="/images/naturalsciences.png"
-            />
-            <AreaKnowledgeButton
-              text="Matemática e suas Tecnologias"
-              iconUrl="/images/math.png"
-            />
-            <AreaKnowledgeButton
-              text="Ciências Humanas e suas Tecnologias"
-              iconUrl="/images/humanscience.png"
-            /> */}
+        </h3>
+        <div className="flex items-center gap-8 w-full">
+          <input
+            type="text"
+            placeholder="Pesquise sua atividade"
+            className={`
+                flex-grow
+                border border-primary rounded-sm
+                px-4 py-2 text-md
+                focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent
+              `}
+          />
+          <div>
+            <Button>Pesquisar</Button>
+          </div>
         </div>
-      </Flex>
-
-      {/* </div> */}
-      {/* <FooterHomeLoggedOut /> */}
-      {/* </div> */}
-    </TopBarLayout>
+        <h3 className="text-center text-2xl text-gray-800">
+          ou busque por área de conhecimento
+        </h3>
+        <div></div>
+      </div>
+    </div>
   );
 }
