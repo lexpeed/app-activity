@@ -1,4 +1,19 @@
-import { Button, Header } from "../components";
+import { Button, Header, KnowledgeAreaCard } from "../components";
+
+const areas = [
+  {
+    description: "Linguagens, Códigos e suas Tecnologias",
+  },
+  {
+    description: "Ciências da Natureza e suas Tecnologias",
+  },
+  {
+    description: "Matemática e suas Tecnologias",
+  },
+  {
+    description: "Ciências Humanas e suas Tecnologias",
+  },
+];
 
 export default function Home() {
   return (
@@ -26,7 +41,14 @@ export default function Home() {
         <h3 className="text-center text-2xl text-gray-800">
           ou busque por área de conhecimento
         </h3>
-        <div></div>
+        <div className="w-full grid grid-cols-2 gap-4">
+          {areas.map((area) => (
+            <KnowledgeAreaCard
+              key={area.description}
+              description={area.description}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
