@@ -1,4 +1,8 @@
-import { Button, Header, KnowledgeAreaCard } from "../components";
+"use client";
+
+import { useRouter } from "next/navigation";
+import { Button, Header, KnowledgeAreaCard, Footer } from "../components";
+import { appRoutes } from "../utils";
 
 const areas = [
   {
@@ -16,6 +20,11 @@ const areas = [
 ];
 
 export default function Home() {
+  const router = useRouter();
+  const onSearch = () => {
+    router.push(appRoutes.activities);
+  };
+
   return (
     <div>
       <Header />
@@ -35,7 +44,7 @@ export default function Home() {
               `}
           />
           <div>
-            <Button>Pesquisar</Button>
+            <Button onClick={onSearch}>Pesquisar</Button>
           </div>
         </div>
         <h3 className="text-center text-2xl text-gray-800">
@@ -50,6 +59,7 @@ export default function Home() {
           ))}
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
