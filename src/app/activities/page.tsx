@@ -1,7 +1,12 @@
+import { Container, Footer } from "../../components";
+
 const ActivitiesPage = () => {
   return (
     <div>
-      <h1>Activities</h1>
+      <Container>
+        <img src="/images/eduque-purple-logo.svg" alt="Purple Logo" />
+      </Container>
+      <Footer />
     </div>
   );
 };
