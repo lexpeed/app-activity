@@ -5,7 +5,9 @@ export const tags = {
 };
 
 const baseApi = createApi({
-  baseQuery: fetchBaseQuery(),
+  baseQuery: fetchBaseQuery({
+    baseUrl: "/api",
+  }),
   tagTypes: [tags.activity],
   endpoints: () => ({}),
 });

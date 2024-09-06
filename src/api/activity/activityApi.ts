@@ -1,7 +1,7 @@
 import baseApi, { tags } from "../baseApi";
 import { SearchActivity } from "./types";
 
-const baseUrl = "api/v1/orders";
+const baseUrl = "activities";
 
 export const activityApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({

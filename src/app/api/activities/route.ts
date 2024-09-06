@@ -1,17 +1,5 @@
-import type { NextApiRequest, NextApiResponse } from "next";
-
-interface Activity {
-  tags: { label: string }[];
-  content: string;
-}
-
-type ResponseData = Activity[];
-
-export default function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<ResponseData>,
-) {
-  res.status(200).json(results);
+export async function GET() {
+  return Response.json(results);
 }
 
 const results = [
@@ -42,5 +30,9 @@ const results = [
   {
     tags: [{ label: "Física" }, { label: "Movimento" }],
     content: "O que é a 1ª Lei de Newton?",
+  },
+  {
+    tags: [{ label: "Química" }, { label: "Tabela periódica" }],
+    content: "Qual é o símbolo do ouro na tabela periódica?",
   },
 ];

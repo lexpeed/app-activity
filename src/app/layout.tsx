@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { inter, playwriteCL } from "../configs/fonts";
 import "./globals.css";
+import { Providers } from "@/components";
 
 export const metadata: Metadata = {
   title: "Portal Eduque",
@@ -15,7 +16,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${playwriteCL.variable}`}>
-      <body>{children}</body>
+      <Providers>
+        <body>{children}</body>
+      </Providers>
     </html>
   );
 }

@@ -1,3 +1,6 @@
+"use client";
+
+import { useSearchActivitiesQuery } from "@/api/activity/activityApi";
 import {
   ActivityResultCard,
   Breadcrumbs,
@@ -5,26 +8,8 @@ import {
   Footer,
 } from "../../components";
 
-const results = [
-  {
-    tags: [{ label: "Matemática" }, { label: "Equação" }],
-    content: "Resolva a equação 2x + 3 = 7",
-  },
-  {
-    tags: [{ label: "Português" }, { label: "Interpretação de texto" }],
-    content: "Leia o texto e responda: Qual é o personagem principal?",
-  },
-  {
-    tags: [{ label: "Geografia" }, { label: "Clima" }],
-    content: "Qual é o clima predominante no Brasil?",
-  },
-  {
-    tags: [{ label: "História" }, { label: "Brasil" }],
-    content: "Quem descobriu o Brasil?",
-  },
-];
-
 const ActivitiesPage = () => {
+  const { data: activities = [] } = useSearchActivitiesQuery();
   return (
     <div className="py-2">
       <header>
@@ -62,9 +47,9 @@ const ActivitiesPage = () => {
             <div>
               <h3 className="text-lg mb-5">Resultados</h3>
               <div className="gap-4 grid grid-cols-2">
-                {results.map((result, index) => (
-                  <ActivityResultCard key={index} tags={result.tags}>
-                    {result.content}
+                {activities.map((activity, index) => (
+                  <ActivityResultCard key={index} tags={activity.tags}>
+                    {activity.content}
                   </ActivityResultCard>
                 ))}
               </div>
