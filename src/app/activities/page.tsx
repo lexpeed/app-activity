@@ -6,10 +6,21 @@ import {
   Breadcrumbs,
   Container,
   Footer,
+  Pagination,
 } from "../../components";
+import { useState } from "react";
+
+const itemsPerPage = 4;
 
 const ActivitiesPage = () => {
+  const [page, setPage] = useState(1);
   const { data: activities = [] } = useSearchActivitiesQuery();
+
+  const filteredActivities = activities.slice(
+    (page - 1) * itemsPerPage,
+    page * itemsPerPage,
+  );
+
   return (
     <div className="py-2">
       <header>
@@ -47,13 +58,19 @@ const ActivitiesPage = () => {
             <div>
               <h3 className="text-lg mb-5">Resultados</h3>
               <div className="gap-4 grid grid-cols-2">
-                {activities.map((activity, index) => (
+                {filteredActivities.map((activity, index) => (
                   <ActivityResultCard key={index} tags={activity.tags}>
                     {activity.content}
                   </ActivityResultCard>
                 ))}
               </div>
             </div>
+            <Pagination
+              currentPage={page}
+              itemsPerPage={itemsPerPage}
+              totalItems={activities.length}
+              onPageChange={(page) => setPage(page)}
+            />
           </div>
         </div>
       </Container>
