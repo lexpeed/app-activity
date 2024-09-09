@@ -34,16 +34,23 @@ const Header = () => {
               Entrar
             </Button>
             <Button
-              onClick={() =>
-                auth.signinRedirect({
-                  extraQueryParams: {
-                    kc_action: 'register',
-                  },
-                  redirect_uri: auth.settings.redirect_uri.concat(
-                    window.location.pathname
-                  ),
-                })
-              }
+              onClick={() => {
+                const redirectUri = auth.settings.redirect_uri.concat(
+                  window.location.pathname
+                );
+
+                // Construct the URL for registration
+                const registrationUrl = `${
+                  process.env.NEXT_PUBLIC_AUTHORITY
+                }/protocol/openid-connect/registrations?client_id=${
+                  process.env.NEXT_PUBLIC_CLIENT_ID
+                }&redirect_uri=${encodeURIComponent(
+                  redirectUri
+                )}&response_type=code&scope=openid`;
+
+                // Redirect the user to the registration page
+                window.location.href = registrationUrl;
+              }}
             >
               Cadastrar
             </Button>
