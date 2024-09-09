@@ -1,27 +1,27 @@
-"use client";
+'use client';
 
-import { useRouter } from "next/navigation";
+import { useRouter } from 'next/navigation';
 import {
   Button,
   Header,
   KnowledgeAreaCard,
   Footer,
   Container,
-} from "../components";
-import { appRoutes } from "../utils";
+} from '../components';
+import { appRoutes } from '../utils';
 
 const areas = [
   {
-    description: "Linguagens, Códigos e suas Tecnologias",
+    description: 'Linguagens, Códigos e suas Tecnologias',
   },
   {
-    description: "Ciências da Natureza e suas Tecnologias",
+    description: 'Ciências da Natureza e suas Tecnologias',
   },
   {
-    description: "Matemática e suas Tecnologias",
+    description: 'Matemática e suas Tecnologias',
   },
   {
-    description: "Ciências Humanas e suas Tecnologias",
+    description: 'Ciências Humanas e suas Tecnologias',
   },
 ];
 

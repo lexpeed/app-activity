@@ -1,12 +1,13 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
+import { Suspense } from 'react';
 
-import { inter, playwriteCL } from "../configs/fonts";
-import "./globals.css";
-import { Providers } from "@/components";
+import { inter, playwriteCL } from '../configs/fonts';
+import './globals.css';
+import { Providers } from '@/components';
 
 export const metadata: Metadata = {
-  title: "Portal Eduque",
-  description: "Banco de atividades gratuitas para professores",
+  title: 'Portal Eduque',
+  description: 'Banco de atividades gratuitas para professores',
 };
 
 export default function RootLayout({
@@ -17,7 +18,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${playwriteCL.variable}`}>
       <Providers>
-        <body>{children}</body>
+        <body>
+          <Suspense>{children}</Suspense>
+        </body>
       </Providers>
     </html>
   );
