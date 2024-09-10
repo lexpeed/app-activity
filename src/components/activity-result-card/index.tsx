@@ -5,11 +5,18 @@ interface Tag {
 interface Props {
   children?: React.ReactNode;
   tags: Tag[];
+  onClick?: () => void;
 }
 
-const ActivityResultCart = ({ children, tags }: Props) => {
+const ActivityResultCart = ({ children, tags, onClick }: Props) => {
   return (
-    <div className="bg-gray-100 p-4 rounded-sm h-60">
+    <div
+      className={`
+        bg-gray-100 p-4 rounded-sm h-60
+        ${onClick ? "cursor-pointer" : ""}
+      `}
+      onClick={onClick}
+    >
       <div className="flex gap-2 mb-4">
         {tags.map((tag, index) => {
           return (

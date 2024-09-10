@@ -9,17 +9,24 @@ import {
   Pagination,
 } from "../../components";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { appRoutes } from "@/utils";
 
 const itemsPerPage = 4;
 
 const ActivitiesPage = () => {
   const [page, setPage] = useState(1);
   const { data: activities = [] } = useSearchActivitiesQuery();
+  const router = useRouter();
 
   const filteredActivities = activities.slice(
     (page - 1) * itemsPerPage,
     page * itemsPerPage,
   );
+
+  const goToActivity = (activityId: string) => {
+    router.push(`${appRoutes.activityDetails}?id=${activityId}`);
+  };
 
   return (
     <div className="py-2">
@@ -59,7 +66,11 @@ const ActivitiesPage = () => {
               <h3 className="text-lg mb-5">Resultados</h3>
               <div className="gap-4 grid grid-cols-2">
                 {filteredActivities.map((activity, index) => (
-                  <ActivityResultCard key={index} tags={activity.tags}>
+                  <ActivityResultCard
+                    key={index}
+                    tags={activity.tags}
+                    onClick={() => goToActivity(String(index + 1))}
+                  >
                     {activity.content}
                   </ActivityResultCard>
                 ))}
