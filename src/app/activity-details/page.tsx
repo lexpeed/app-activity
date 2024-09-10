@@ -55,12 +55,18 @@ const ActivityPage = () => {
             {activity?.title}
           </h1>
           <div className="flex gap-4 flex-col">
-            <div>{activity?.question}</div>
-            {activity?.alternatives.map((option, index) => (
-              <div key={index} className="flex gap-2 items-center">
-                <input type="radio" name="option" id={option.label} />
-                <label htmlFor={option.label}>{option.label}</label>
-              </div>
+            {activity?.questions.map((question, index) => (
+              <>
+                <h2 className="text-xl font-bold text-gray-500 my-4">
+                  {index + 1}. {question.question}
+                </h2>
+                {question.alternatives.map((option, index) => (
+                  <div key={index} className="flex gap-2 items-center">
+                    <input type="radio" name="option" id={option.label} />
+                    <label htmlFor={option.label}>{option.label}</label>
+                  </div>
+                ))}
+              </>
             ))}
           </div>
         </div>

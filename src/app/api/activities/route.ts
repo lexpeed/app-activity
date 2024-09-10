@@ -4,35 +4,183 @@ export async function GET() {
 
 const results = [
   {
-    tags: [{ label: "Matemática" }, { label: "Equação" }],
-    content: "Resolva a equação 2x + 3 = 7",
+    id: "13123123",
+    title: "Lista de exercícios de Matemática",
+    tags: [{ label: "Matemática" }],
+    questions: [
+      {
+        question: `
+        A função f(x) = 2x + 3 é uma função linear.
+        Qual é o valor de f(5)?
+      `,
+        alternatives: [
+          { label: "A) 10" },
+          { label: "B) 13" },
+          { label: "C) 15" },
+          { label: "D) 20" },
+          { label: "E) 23" },
+        ],
+      },
+    ],
   },
   {
-    tags: [{ label: "Português" }, { label: "Interpretação de texto" }],
-    content: "Leia o texto e responda: Qual é o personagem principal?",
+    id: "13123123",
+    title: "Lista de exercícios de Matemática",
+    tags: [{ label: "Matemática" }],
+    questions: [
+      {
+        question: `
+          A função f(x) = 2x + 3 é uma função linear.
+          Qual é o valor de f(5)?
+        `,
+        alternatives: [
+          { label: "A) 10" },
+          { label: "B) 13" },
+          { label: "C) 15" },
+          { label: "D) 20" },
+          { label: "E) 23" },
+        ],
+      },
+    ],
   },
   {
-    tags: [{ label: "Geografia" }, { label: "Clima" }],
-    content: "Qual é o clima predominante no Brasil?",
+    id: "13123123",
+    title: "Lista de exercícios de Matemática",
+    tags: [{ label: "Matemática" }],
+    questions: [
+      {
+        question: `
+          A função f(x) = 2x + 3 é uma função linear.
+          Qual é o valor de f(5)?
+        `,
+        alternatives: [
+          { label: "A) 10" },
+          { label: "B) 13" },
+          { label: "C) 15" },
+          { label: "D) 20" },
+          { label: "E) 23" },
+        ],
+      },
+    ],
   },
   {
-    tags: [{ label: "História" }, { label: "Brasil" }],
-    content: "Quem descobriu o Brasil?",
+    id: "13123123",
+    title: "Lista de exercícios de Matemática",
+    tags: [{ label: "Matemática" }],
+    questions: [
+      {
+        question: `
+          A função f(x) = 2x + 3 é uma função linear.
+          Qual é o valor de f(5)?
+        `,
+        alternatives: [
+          { label: "A) 10" },
+          { label: "B) 13" },
+          { label: "C) 15" },
+          { label: "D) 20" },
+          { label: "E) 23" },
+        ],
+      },
+    ],
   },
   {
-    tags: [{ label: "Inglês" }, { label: "Vocabulário" }],
-    content: "O que significa a palavra 'book'?",
+    id: "13123123",
+    title: "Lista de exercícios de Matemática",
+    tags: [{ label: "Matemática" }],
+    questions: [
+      {
+        question: `
+          A função f(x) = 2x + 3 é uma função linear.
+          Qual é o valor de f(5)?
+        `,
+        alternatives: [
+          { label: "A) 10" },
+          { label: "B) 13" },
+          { label: "C) 15" },
+          { label: "D) 20" },
+          { label: "E) 23" },
+        ],
+      },
+    ],
   },
   {
-    tags: [{ label: "Biologia" }, { label: "Célula" }],
-    content: "Qual é a menor parte de um ser vivo?",
+    id: "13123123",
+    title: "Lista de exercícios de Matemática",
+    tags: [{ label: "Matemática" }],
+    questions: [
+      {
+        question: `
+          A função f(x) = 2x + 3 é uma função linear.
+          Qual é o valor de f(5)?
+        `,
+        alternatives: [
+          { label: "A) 10" },
+          { label: "B) 13" },
+          { label: "C) 15" },
+          { label: "D) 20" },
+          { label: "E) 23" },
+        ],
+      },
+    ],
   },
   {
-    tags: [{ label: "Física" }, { label: "Movimento" }],
-    content: "O que é a 1ª Lei de Newton?",
+    id: "13123123",
+    title: "Lista de exercícios de Matemática",
+    tags: [{ label: "Matemática" }],
+    questions: [
+      {
+        question: `
+          A função f(x) = 2x + 3 é uma função linear.
+          Qual é o valor de f(5)?
+        `,
+        alternatives: [
+          { label: "A) 10" },
+          { label: "B) 13" },
+          { label: "C) 15" },
+          { label: "D) 20" },
+          { label: "E) 23" },
+        ],
+      },
+    ],
   },
   {
-    tags: [{ label: "Química" }, { label: "Tabela periódica" }],
-    content: "Qual é o símbolo do ouro na tabela periódica?",
+    id: "13123123",
+    title: "Lista de exercícios de Matemática",
+    tags: [{ label: "Matemática" }],
+    questions: [
+      {
+        question: `
+          A função f(x) = 2x + 3 é uma função linear.
+          Qual é o valor de f(5)?
+        `,
+        alternatives: [
+          { label: "A) 10" },
+          { label: "B) 13" },
+          { label: "C) 15" },
+          { label: "D) 20" },
+          { label: "E) 23" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "13123123",
+    title: "Lista de exercícios de Matemática",
+    tags: [{ label: "Matemática" }],
+    questions: [
+      {
+        question: `
+          A função f(x) = 2x + 3 é uma função linear.
+          Qual é o valor de f(5)?
+        `,
+        alternatives: [
+          { label: "A) 10" },
+          { label: "B) 13" },
+          { label: "C) 15" },
+          { label: "D) 20" },
+          { label: "E) 23" },
+        ],
+      },
+    ],
   },
 ];

@@ -1,10 +1,6 @@
 export interface SearchActivity {
-  tags: { label: string }[];
-  content: string;
-}
-
-export interface GetActivityById {
+  id: string;
   title: string;
-  question: string;
-  alternatives: { label: string }[];
+  tags: { label: string }[];
+  questions: { question: string; alternatives: { label: string }[] }[];
 }

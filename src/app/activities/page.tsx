@@ -78,9 +78,9 @@ const ActivitiesPage = () => {
                   <ActivityResultCard
                     key={index}
                     tags={activity.tags}
-                    onClick={() => goToActivity(String(index + 1))}
+                    onClick={() => goToActivity(activity.id)}
                   >
-                    {activity.content}
+                    {activity.questions?.[0]?.question ?? ""}
                   </ActivityResultCard>
                 ))}
               </div>
