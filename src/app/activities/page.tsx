@@ -28,11 +28,20 @@ const ActivitiesPage = () => {
     router.push(`${appRoutes.activityDetails}?id=${activityId}`);
   };
 
+  const goToHome = () => {
+    router.push(appRoutes.home);
+  };
+
   return (
     <div className="py-2">
       <header>
         <Container>
-          <img src="/images/eduque-purple-logo.svg" alt="Purple Logo" />
+          <img
+            src="/images/eduque-purple-logo.svg"
+            alt="Purple Logo"
+            className="cursor-pointer"
+            onClick={goToHome}
+          />
         </Container>
       </header>
       <Container>

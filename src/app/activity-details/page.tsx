@@ -2,7 +2,8 @@
 
 import { useLazyGetActivityByIdQuery } from "@/api/activity/activityApi";
 import { Breadcrumbs, Container, Footer } from "@/components";
-import { useSearchParams } from "next/navigation";
+import { appRoutes } from "@/utils";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
 const ActivityPage = () => {
@@ -10,6 +11,7 @@ const ActivityPage = () => {
   const [getActitivies, activityResult] = useLazyGetActivityByIdQuery();
   const id = searchParams.get("id");
   const activity = activityResult.data;
+  const router = useRouter();
 
   useEffect(() => {
     if (id) {
@@ -17,11 +19,24 @@ const ActivityPage = () => {
     }
   }, [id]);
 
+  const goToHome = () => {
+    router.push(appRoutes.home);
+  };
+
+  const goToActivities = () => {
+    router.push(appRoutes.activities);
+  };
+
   return (
     <div className="py-2">
       <header>
         <Container>
-          <img src="/images/eduque-purple-logo.svg" alt="Purple Logo" />
+          <img
+            src="/images/eduque-purple-logo.svg"
+            alt="Purple Logo"
+            className="cursor-pointer"
+            onClick={goToHome}
+          />
         </Container>
       </header>
       <Container>
@@ -29,7 +44,11 @@ const ActivityPage = () => {
           <Breadcrumbs
             items={[
               { label: "Home", url: "/" },
-              { label: "Activities", url: "/activities" },
+              {
+                label: "Activities",
+                url: "/activities",
+                onClick: goToActivities,
+              },
             ]}
           />
           <h1 className="text-3xl font-bold text-gray-800 my-4">

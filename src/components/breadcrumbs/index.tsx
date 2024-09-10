@@ -1,6 +1,7 @@
 interface Breadcrumb {
   label: string;
   url?: string;
+  onClick?: () => void;
 }
 
 interface Props {
@@ -14,9 +15,11 @@ const Breadcrumbs = ({ items }: Props) => {
         <span key={index}>
           {index > 0 && <span className="text-gray-400"> / </span>}
           <span
-            className={
-              index === items.length - 1 ? "text-primary" : "text-gray-400"
-            }
+            onClick={item.onClick}
+            className={`
+              ${index === items.length - 1 ? "text-primary" : "text-gray-400"}
+              ${item.onClick ? "cursor-pointer" : ""}
+              `}
           >
             {item.label}
           </span>
