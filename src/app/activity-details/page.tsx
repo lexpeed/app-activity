@@ -58,7 +58,7 @@ const ActivityPage = () => {
             {activity?.questions.map((question, index) => (
               <>
                 <h2 className="text-xl font-bold text-gray-500 my-4">
-                  {index + 1}. {question.question}
+                  {index + 1}. {question.content}
                 </h2>
                 {question.alternatives.map((option, index) => (
                   <div key={index} className="flex gap-2 items-center">

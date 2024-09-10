@@ -73,14 +73,14 @@ const ActivitiesPage = () => {
 
             <div>
               <h3 className="text-lg mb-5">Resultados</h3>
-              <div className="gap-4 grid grid-cols-2">
+              <div className="gap-4 grid grid-cols-2" style={{ overflow: 'hidden', textOverflow: 'ellipsis' }}>
                 {filteredActivities.map((activity, index) => (
                   <ActivityResultCard
                     key={index}
                     tags={activity.tags}
                     onClick={() => goToActivity(activity.id)}
                   >
-                    {activity.questions?.[0]?.question ?? ""}
+                    {activity.questions?.[0]?.content ?? ""}
                   </ActivityResultCard>
                 ))}
               </div>

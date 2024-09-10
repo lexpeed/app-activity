@@ -6,7 +6,7 @@ export const tags = {
 
 const baseApi = createApi({
   baseQuery: fetchBaseQuery({
-    baseUrl: "/api",
+    baseUrl: "https://activity-default.dev.do.portaleduque.net",
   }),
   tagTypes: [tags.activity],
   endpoints: () => ({}),

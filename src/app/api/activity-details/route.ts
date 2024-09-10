@@ -8,7 +8,7 @@ const result = {
   tags: [{ label: "Matemática" }],
   questions: [
     {
-      question: `
+      content: `
       A função f(x) = 2x + 3 é uma função linear.
       Qual é o valor de f(5)?
     `,
@@ -21,7 +21,7 @@ const result = {
       ],
     },
     {
-      question: `
+      content: `
           A função f(x) = 2x + 3 é uma função linear.
           Qual é o valor de f(5)?
         `,
@@ -34,7 +34,7 @@ const result = {
       ],
     },
     {
-      question: `
+      content: `
           A função f(x) = 2x + 3 é uma função linear.
           Qual é o valor de f(5)?
         `,
