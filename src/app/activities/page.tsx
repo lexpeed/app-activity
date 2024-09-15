@@ -1,16 +1,11 @@
 "use client";
 
 import { useSearchActivitiesQuery } from "@/api/activity/activityApi";
-import {
-  ActivityResultCard,
-  Breadcrumbs,
-  Footer,
-  Pagination,
-} from "../../components";
+import { ActivityResultCard, Footer, Pagination } from "../../components";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { appRoutes } from "@/utils";
-import { Container, Select } from "@/components/eduque-components";
+import { Container, Select, Breadcrumbs } from "@/components/eduque-components";
 
 const itemsPerPage = 4;
 

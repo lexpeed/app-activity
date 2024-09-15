@@ -1,8 +1,8 @@
 "use client";
 
 import { useLazyGetActivityByIdQuery } from "@/api/activity/activityApi";
-import { Breadcrumbs, Footer } from "@/components";
-import { Container } from "@/components/eduque-components";
+import { Footer } from "@/components";
+import { Container, Breadcrumbs } from "@/components/eduque-components";
 import { appRoutes } from "@/utils";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
