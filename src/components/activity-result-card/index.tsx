@@ -1,3 +1,5 @@
+import { Button } from "@/components/eduque-components";
+
 interface Tag {
   label: string;
 }
@@ -12,24 +14,41 @@ const ActivityResultCart = ({ children, tags, onClick }: Props) => {
   return (
     <div
       className={`
-        bg-gray-100 p-4 rounded-sm h-60
+        bg-gray-100 py-4 px-8 rounded-sm
+        flex flex-col justify-between gap-4
         ${onClick ? "cursor-pointer" : ""}
       `}
       onClick={onClick}
     >
-      <div className="flex gap-2 mb-4">
+      <div className="flex gap-2 flex-wrap sm:flex-nowrap">
         {tags.map((tag, index) => {
           return (
             <span
               key={index}
-              className="border border-primary text-sm text-gray-500 px-2 py-0.5 rounded-sm"
+              title={tag.label}
+              className={`
+                border border-primary text-sm text-gray-500 px-2 py-0.5 rounded-sm
+                bg-white truncate ...
+              `}
             >
               {tag.label}
             </span>
           );
         })}
       </div>
-      {children}
+      <span
+        className={`
+          line-clamp-6
+          sm:line-clamp-4
+        `}
+      >
+        {children}
+      </span>
+      <div className="text-center">
+        <Button onClick={onClick} color="primary">
+          <span className="text-sm">View Details</span>
+        </Button>
+      </div>
     </div>
   );
 };

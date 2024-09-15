@@ -1,9 +1,8 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { useAuth } from 'react-oidc-context';
-
-import Button from '../button';
+import Image from "next/image";
+import { useAuth } from "react-oidc-context";
+import { Button } from "@/components/eduque-components";
 
 const Header = () => {
   const auth = useAuth();
@@ -26,7 +25,7 @@ const Header = () => {
               onClick={() =>
                 auth.signinRedirect({
                   redirect_uri: auth.settings.redirect_uri.concat(
-                    window.location.pathname
+                    window.location.pathname,
                   ),
                 })
               }
@@ -36,7 +35,7 @@ const Header = () => {
             <Button
               onClick={() => {
                 const redirectUri = auth.settings.redirect_uri.concat(
-                  window.location.pathname
+                  window.location.pathname,
                 );
 
                 // Construct the URL for registration
@@ -45,7 +44,7 @@ const Header = () => {
                 }/protocol/openid-connect/registrations?client_id=${
                   process.env.NEXT_PUBLIC_CLIENT_ID
                 }&redirect_uri=${encodeURIComponent(
-                  redirectUri
+                  redirectUri,
                 )}&response_type=code&scope=openid`;
 
                 // Redirect the user to the registration page
@@ -60,7 +59,7 @@ const Header = () => {
             onClick={() =>
               auth.signoutRedirect({
                 post_logout_redirect_uri: auth.settings.redirect_uri.concat(
-                  window.location.pathname
+                  window.location.pathname,
                 ),
               })
             }
@@ -70,17 +69,35 @@ const Header = () => {
         )}
       </div>
 
-      <h1 className="text-white text-center font-black text-7xl">
-        Transformando <br />a Educação
+      <Image
+        src="/images/eduque-green-typo-logo.svg"
+        alt="Eduque Logo"
+        className="max-w-48 hidden sm:block"
+        width={192}
+        height={73}
+      />
+
+      <h1
+        className={`
+          text-white text-center font-black text-4xl
+          md:text-6xl
+          sm:text-5xl
+      `}
+      >
+        Transformando a<br /> Educação
       </h1>
 
       <Image
         src="/images/eduque-green-typo-logo.svg"
-        alt="Hero"
-        className="max-w-48"
+        alt="Eduque Logo"
+        className="max-w-32 sm:hidden"
         width={192}
         height={73}
       />
+
+      <h3 className="text-center text-2xl text-white hidden md:inline">
+        Encontre e compartilhe atividades com seus alunos e outros professores
+      </h3>
     </header>
   );
 };

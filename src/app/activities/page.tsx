@@ -1,16 +1,16 @@
 "use client";
 
 import { useSearchActivitiesQuery } from "@/api/activity/activityApi";
-import {
-  ActivityResultCard,
-  Breadcrumbs,
-  Container,
-  Footer,
-  Pagination,
-} from "../../components";
+import { ActivityResultCard, Footer } from "../../components";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { appRoutes } from "@/utils";
+import {
+  Container,
+  Select,
+  Breadcrumbs,
+  Pagination,
+} from "@/components/eduque-components";
 
 const itemsPerPage = 4;
 
@@ -45,35 +45,59 @@ const ActivitiesPage = () => {
         </Container>
       </header>
       <Container>
-        <div className="py-3">
+        <div className="mt-8 py-3">
           <Breadcrumbs
             items={[
               { label: "Home", url: "/" },
               { label: "Activities", url: "/activities" },
             ]}
           />
-          <h1 className="text-5xl font-bold text-gray-800 my-4">Questões</h1>
+          <h1
+            className={`
+              font-bold text-gray-800 my-4
+              text-2xl sm:text-4xl md:text-5xl
+            `}
+          >
+            Questões
+          </h1>
 
           <div className="flex gap-4 flex-col">
             <div>
-              <h3 className="text-lg mb-5">Filtros Avançados</h3>
-              <div>
-                <label>Matéria</label>
-                <select>
-                  <option>Matemática</option>
-                  <option>Português</option>
-                  <option>Geografia</option>
-                  <option>História</option>
-                  <option>Biologia</option>
-                  <option>Química</option>
-                  <option>Física</option>
-                </select>
+              <h3 className="text-lg mb-3">Filtros</h3>
+              <div
+                className={`
+                  flex gap-2 flex-wrap
+              `}
+              >
+                <Select>
+                  <Select.Option>Português</Select.Option>
+                  <Select.Option>Matemática</Select.Option>
+                  <Select.Option>Biologia</Select.Option>
+                </Select>
+
+                <Select>
+                  <Select.Option>Português</Select.Option>
+                  <Select.Option>Matemática</Select.Option>
+                  <Select.Option>Biologia</Select.Option>
+                </Select>
+
+                <Select>
+                  <Select.Option>Português</Select.Option>
+                  <Select.Option>Matemática</Select.Option>
+                  <Select.Option>Biologia</Select.Option>
+                </Select>
               </div>
             </div>
 
             <div>
               <h3 className="text-lg mb-5">Resultados</h3>
-              <div className="gap-4 grid grid-cols-2" style={{ overflow: 'hidden', textOverflow: 'ellipsis' }}>
+              <div
+                className={`
+                  gap-4 grid
+                  md:grid-cols-2
+                `}
+                style={{ overflow: "hidden", textOverflow: "ellipsis" }}
+              >
                 {filteredActivities.map((activity, index) => (
                   <ActivityResultCard
                     key={index}
