@@ -3,7 +3,12 @@
 import { useRouter } from "next/navigation";
 import { Header, KnowledgeAreaCard, Footer } from "../components";
 import { appRoutes } from "../utils";
-import { TextField, Container, Button } from "@/components/eduque-components";
+import {
+  TextField,
+  Container,
+  Button,
+  Select,
+} from "@/components/eduque-components";
 
 const areas = [
   {
@@ -37,34 +42,34 @@ export default function Home() {
       `}
       >
         <Container>
-          <TextField fullWidth placeholder="Pesquise sua atividade" />
+          <div
+            className={`
+              flex flex-col items-center sm:flex-row
+              gap-4 sm:gap-6
+            `}
+          >
+            <div className="flex-1 w-full">
+              <TextField fullWidth placeholder="Pesquise sua atividade" />
+            </div>
+            <div className="flex gap-4 max-sm:w-full sm:gap-2">
+              <Select fullWidth>
+                <option value="">Grau de Escolaridade</option>
+              </Select>
+              <Button onClick={onSearch}>Pesquisar</Button>
+            </div>
+          </div>
         </Container>
       </div>
       <Container>
         <div className="flex flex-col justify-center items-center gap-8 my-8 w-full">
           <h3 className="text-center text-2xl text-gray-800">
-            Encontre e compartilhe atividades com seus alunos e outros
-            professores
+            Áreas de Conhecimento
           </h3>
-          <div className="flex items-center gap-8 w-full">
-            <input
-              type="text"
-              placeholder="Pesquise sua atividade"
-              className={`
-                flex-grow
-                border border-primary rounded-sm
-                px-4 py-2 text-md
-                focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent
-              `}
-            />
-            <div>
-              <Button onClick={onSearch}>Pesquisar</Button>
-            </div>
-          </div>
-          <h3 className="text-center text-2xl text-gray-800">
-            ou busque por área de conhecimento
-          </h3>
-          <div className="w-full grid grid-cols-2 gap-4">
+          <div
+            className={`
+            w-full grid grid-cols-2 gap-4
+          `}
+          >
             {areas.map((area) => (
               <KnowledgeAreaCard
                 key={area.description}

@@ -69,17 +69,35 @@ const Header = () => {
         )}
       </div>
 
-      <h1 className="text-white text-center font-black text-7xl">
-        Transformando <br />a Educação
+      <Image
+        src="/images/eduque-green-typo-logo.svg"
+        alt="Eduque Logo"
+        className="max-w-48 hidden sm:block"
+        width={192}
+        height={73}
+      />
+
+      <h1
+        className={`
+          text-white text-center font-black text-4xl
+          md:text-6xl
+          sm:text-5xl
+      `}
+      >
+        Transformando a<br /> Educação
       </h1>
 
       <Image
         src="/images/eduque-green-typo-logo.svg"
-        alt="Hero"
-        className="max-w-48"
+        alt="Eduque Logo"
+        className="max-w-32 sm:hidden"
         width={192}
         height={73}
       />
+
+      <h3 className="text-center text-2xl text-white hidden md:inline">
+        Encontre e compartilhe atividades com seus alunos e outros professores
+      </h3>
     </header>
   );
 };

@@ -19,7 +19,11 @@ const sizes = {
 
 const Select = ({ children, size = "md", fullWidth, ...rest }: SelectProps) => {
   return (
-    <div>
+    <div
+      className={`
+        ${fullWidth ? "w-full" : ""}
+      `}
+    >
       <select
         className={`
           bg-white
