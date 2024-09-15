@@ -1,27 +1,22 @@
-'use client';
+"use client";
 
-import { useRouter } from 'next/navigation';
-import {
-  Button,
-  Header,
-  KnowledgeAreaCard,
-  Footer,
-  Container,
-} from '../components';
-import { appRoutes } from '../utils';
+import { useRouter } from "next/navigation";
+import { Header, KnowledgeAreaCard, Footer } from "../components";
+import { appRoutes } from "../utils";
+import { TextField, Container, Button } from "@/components/eduque-components";
 
 const areas = [
   {
-    description: 'Linguagens, Códigos e suas Tecnologias',
+    description: "Linguagens, Códigos e suas Tecnologias",
   },
   {
-    description: 'Ciências da Natureza e suas Tecnologias',
+    description: "Ciências da Natureza e suas Tecnologias",
   },
   {
-    description: 'Matemática e suas Tecnologias',
+    description: "Matemática e suas Tecnologias",
   },
   {
-    description: 'Ciências Humanas e suas Tecnologias',
+    description: "Ciências Humanas e suas Tecnologias",
   },
 ];
 
@@ -34,6 +29,17 @@ export default function Home() {
   return (
     <div>
       <Header />
+      <div
+        className={`
+        bg-gray-200
+        flex justify-center items-center
+        py-5
+      `}
+      >
+        <Container>
+          <TextField fullWidth placeholder="Pesquise sua atividade" />
+        </Container>
+      </div>
       <Container>
         <div className="flex flex-col justify-center items-center gap-8 my-8 w-full">
           <h3 className="text-center text-2xl text-gray-800">

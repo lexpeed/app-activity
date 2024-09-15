@@ -4,13 +4,13 @@ import { useSearchActivitiesQuery } from "@/api/activity/activityApi";
 import {
   ActivityResultCard,
   Breadcrumbs,
-  Container,
   Footer,
   Pagination,
 } from "../../components";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { appRoutes } from "@/utils";
+import { Container } from "@/components/eduque-components";
 
 const itemsPerPage = 4;
 
@@ -73,7 +73,10 @@ const ActivitiesPage = () => {
 
             <div>
               <h3 className="text-lg mb-5">Resultados</h3>
-              <div className="gap-4 grid grid-cols-2" style={{ overflow: 'hidden', textOverflow: 'ellipsis' }}>
+              <div
+                className="gap-4 grid grid-cols-2"
+                style={{ overflow: "hidden", textOverflow: "ellipsis" }}
+              >
                 {filteredActivities.map((activity, index) => (
                   <ActivityResultCard
                     key={index}

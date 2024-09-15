@@ -1,9 +1,8 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { useAuth } from 'react-oidc-context';
-
-import Button from '../button';
+import Image from "next/image";
+import { useAuth } from "react-oidc-context";
+import { Button } from "@/components/eduque-components";
 
 const Header = () => {
   const auth = useAuth();
@@ -26,7 +25,7 @@ const Header = () => {
               onClick={() =>
                 auth.signinRedirect({
                   redirect_uri: auth.settings.redirect_uri.concat(
-                    window.location.pathname
+                    window.location.pathname,
                   ),
                 })
               }
@@ -36,7 +35,7 @@ const Header = () => {
             <Button
               onClick={() => {
                 const redirectUri = auth.settings.redirect_uri.concat(
-                  window.location.pathname
+                  window.location.pathname,
                 );
 
                 // Construct the URL for registration
@@ -45,7 +44,7 @@ const Header = () => {
                 }/protocol/openid-connect/registrations?client_id=${
                   process.env.NEXT_PUBLIC_CLIENT_ID
                 }&redirect_uri=${encodeURIComponent(
-                  redirectUri
+                  redirectUri,
                 )}&response_type=code&scope=openid`;
 
                 // Redirect the user to the registration page
@@ -60,7 +59,7 @@ const Header = () => {
             onClick={() =>
               auth.signoutRedirect({
                 post_logout_redirect_uri: auth.settings.redirect_uri.concat(
-                  window.location.pathname
+                  window.location.pathname,
                 ),
               })
             }
