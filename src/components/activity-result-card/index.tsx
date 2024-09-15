@@ -20,7 +20,7 @@ const ActivityResultCart = ({ children, tags, onClick }: Props) => {
       `}
       onClick={onClick}
     >
-      <div className="flex gap-2">
+      <div className="flex gap-2 flex-wrap sm:flex-nowrap">
         {tags.map((tag, index) => {
           return (
             <span
@@ -38,7 +38,8 @@ const ActivityResultCart = ({ children, tags, onClick }: Props) => {
       </div>
       <span
         className={`
-          line-clamp-4
+          line-clamp-6
+          sm:line-clamp-4
         `}
       >
         {children}
