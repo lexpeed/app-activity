@@ -31,6 +31,7 @@ const TextField = ({
         id={id}
         type="text"
         {...rest}
+        style={{ lineHeight: "normal" }}
         className={`
           bg-white
           border border-primary
