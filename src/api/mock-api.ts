@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { ActivityDetails } from "./activity/types";
 
 const mockApi = createApi({
   reducerPath: "mockApi",
@@ -7,7 +8,7 @@ const mockApi = createApi({
   }),
   tagTypes: [],
   endpoints: (builder) => ({
-    getActivityByIdMock: builder.query<{ htmlContent: string }, string>({
+    getActivityByIdMock: builder.query<ActivityDetails, string>({
       query: (id) => "activity-details",
       providesTags: [],
     }),

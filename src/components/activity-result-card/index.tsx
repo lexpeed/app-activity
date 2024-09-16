@@ -1,4 +1,4 @@
-import { Button } from "@/components/eduque-components";
+import { Button, Tag } from "@/components/eduque-components";
 
 interface Tag {
   label: string;
@@ -22,18 +22,7 @@ const ActivityResultCart = ({ children, tags, onClick }: Props) => {
     >
       <div className="flex gap-2 flex-wrap sm:flex-nowrap">
         {tags.map((tag, index) => {
-          return (
-            <span
-              key={index}
-              title={tag.label}
-              className={`
-                border border-primary text-sm text-gray-500 px-2 py-0.5 rounded-sm
-                bg-white truncate ...
-              `}
-            >
-              {tag.label}
-            </span>
-          );
+          return <Tag key={tag.label}>{tag.label}</Tag>;
         })}
       </div>
       <span

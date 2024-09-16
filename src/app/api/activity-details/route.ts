@@ -3,6 +3,12 @@ import { NextResponse } from "next/server";
 export async function GET() {
   return NextResponse.json({
     htmlContent: result,
+    summary: "Atividade de Eletricidade com questões do ENEM e Vestibular.",
+    tags: [
+      { label: "Eletricidade" },
+      { label: "ENEM" },
+      { label: "Vestibular" },
+    ],
   });
 }
 

@@ -2,7 +2,7 @@
 
 import { useLazyGetActivityByIdMockQuery } from "@/api/mock-api";
 import { Footer } from "@/components";
-import { Container, Breadcrumbs } from "@/components/eduque-components";
+import { Container, Breadcrumbs, Tag } from "@/components/eduque-components";
 import { appRoutes } from "@/utils";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
@@ -53,6 +53,19 @@ const ActivityPage = () => {
             ]}
           />
           <h1 className="text-3xl font-bold text-gray-800 my-4"></h1>
+
+          <div
+            className={`
+            flex
+            flex-wrap
+            gap-2
+            mb-4
+          `}
+          >
+            {activityResult.data?.tags.map((tag) => (
+              <Tag key={tag.label}>{tag.label}</Tag>
+            ))}
+          </div>
 
           <div
             id="content-div"
