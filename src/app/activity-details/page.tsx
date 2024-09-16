@@ -2,7 +2,12 @@
 
 import { useLazyGetActivityByIdMockQuery } from "@/api/mock-api";
 import { Footer } from "@/components";
-import { Container, Breadcrumbs, Tag } from "@/components/eduque-components";
+import {
+  Container,
+  Breadcrumbs,
+  Tag,
+  Button,
+} from "@/components/eduque-components";
 import { appRoutes } from "@/utils";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
@@ -52,14 +57,23 @@ const ActivityPage = () => {
               },
             ]}
           />
-          <h1 className="text-3xl font-bold text-gray-800 my-4"></h1>
+          <h1
+            className={`
+            text-3xl sm:text-5xl md:text-6xl
+            font-bold
+            text-gray-800
+            my-6
+          `}
+          >
+            Exercícios de física
+          </h1>
 
           <div
             className={`
-            flex
-            flex-wrap
-            gap-2
-            mb-4
+              flex
+              flex-wrap
+              gap-2
+              mb-4
           `}
           >
             {activityResult.data?.tags.map((tag) => (
@@ -68,10 +82,30 @@ const ActivityPage = () => {
           </div>
 
           <div
-            id="content-div"
-            className="bg-gray-100 p-4"
-            dangerouslySetInnerHTML={{ __html: htmlContent }}
-          ></div>
+            className={`
+              flex
+              flex-col-reverse lg:flex-row
+              gap-4
+            `}
+          >
+            <div
+              id="content-div"
+              className="bg-gray-100 p-5"
+              dangerouslySetInnerHTML={{ __html: htmlContent }}
+            ></div>
+            <div
+              className={`
+              flex flex-col
+              gap-4
+              items-start
+              mt-4
+              min-w-56
+            `}
+            >
+              <span>{activityResult.data?.summary}</span>
+              <Button>Baixar em Word</Button>
+            </div>
+          </div>
         </div>
       </Container>
       <Footer />
