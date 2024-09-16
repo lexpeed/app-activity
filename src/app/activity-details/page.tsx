@@ -11,7 +11,20 @@ import {
 import { appRoutes } from "@/utils";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
-import { LeftOutlined } from "@ant-design/icons";
+import {
+  LeftOutlined,
+  HeartOutlined,
+  PrinterOutlined,
+  ShareAltOutlined,
+  NotificationOutlined,
+} from "@ant-design/icons";
+
+const iconActions = [
+  { icon: <HeartOutlined />, label: "Favoritar" },
+  { icon: <PrinterOutlined />, label: "Imprimir" },
+  { icon: <ShareAltOutlined />, label: "Compartilhar" },
+  { icon: <NotificationOutlined />, label: "Notificar" },
+];
 
 const ActivityPage = () => {
   const searchParams = useSearchParams();
@@ -127,6 +140,25 @@ const ActivityPage = () => {
             >
               <span>{activityResult.data?.summary}</span>
               <Button>Baixar em Word</Button>
+              <div
+                className={`
+                  flex
+                  gap-4
+                `}
+              >
+                {iconActions.map((action, index) => (
+                  <button
+                    key={index}
+                    title={action.label}
+                    className={`
+                      text-gray-700
+                      text-lg
+                    `}
+                  >
+                    {action.icon}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         </div>
