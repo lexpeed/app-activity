@@ -11,6 +11,7 @@ import {
 import { appRoutes } from "@/utils";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
+import { LeftOutlined } from "@ant-design/icons";
 
 const ActivityPage = () => {
   const searchParams = useSearchParams();
@@ -31,6 +32,10 @@ const ActivityPage = () => {
 
   const goToActivities = () => {
     router.push(appRoutes.activities);
+  };
+
+  const goBack = () => {
+    router.back();
   };
 
   return (
@@ -57,16 +62,34 @@ const ActivityPage = () => {
               },
             ]}
           />
-          <h1
+          <div
             className={`
+              flex
+              items-center
+              gap-4 md:gap-6
+              mb-4
+          `}
+          >
+            <button
+              onClick={goBack}
+              className={`
+                text-xl sm:text-2xl md:text-3xl
+                text-gray-600
+              `}
+            >
+              <LeftOutlined />
+            </button>
+            <h1
+              className={`
             text-3xl sm:text-5xl md:text-6xl
             font-bold
             text-gray-800
             my-6
           `}
-          >
-            Exercícios de física
-          </h1>
+            >
+              Exercícios de física
+            </h1>
+          </div>
 
           <div
             className={`
