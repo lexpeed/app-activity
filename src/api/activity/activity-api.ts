@@ -1,4 +1,4 @@
-import baseApi, { tags } from "../baseApi";
+import baseApi, { tags } from "../base-api";
 import { SearchActivity } from "./types";
 
 const baseUrl = "activities";
@@ -9,7 +9,7 @@ export const activityApi = baseApi.injectEndpoints({
       query: () => baseUrl,
       providesTags: [tags.activity],
     }),
-    getActivityById: builder.query<SearchActivity, string>({
+    getActivityById: builder.query<string, string>({
       query: (id) => "activity-details",
       providesTags: [tags.activity],
     }),

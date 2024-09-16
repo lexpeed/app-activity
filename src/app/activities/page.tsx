@@ -1,6 +1,6 @@
 "use client";
 
-import { useSearchActivitiesQuery } from "@/api/activity/activityApi";
+import { useSearchActivitiesQuery } from "@/api/activity/activity-api";
 import { ActivityResultCard, Footer } from "../../components";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -12,7 +12,7 @@ import {
   Pagination,
 } from "@/components/eduque-components";
 
-const itemsPerPage = 4;
+const itemsPerPage = 9;
 
 const ActivitiesPage = () => {
   const [page, setPage] = useState(1);
@@ -90,11 +90,10 @@ const ActivitiesPage = () => {
             </div>
 
             <div>
-              <h3 className="text-lg mb-5">Resultados</h3>
               <div
                 className={`
                   gap-4 grid
-                  md:grid-cols-2
+                  md:grid-cols-3
                 `}
                 style={{ overflow: "hidden", textOverflow: "ellipsis" }}
               >

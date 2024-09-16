@@ -1,6 +1,6 @@
 "use client";
 
-import { useLazyGetActivityByIdQuery } from "@/api/activity/activityApi";
+import { useLazyGetActivityByIdMockQuery } from "@/api/mock-api";
 import { Footer } from "@/components";
 import { Container, Breadcrumbs } from "@/components/eduque-components";
 import { appRoutes } from "@/utils";
@@ -9,14 +9,14 @@ import { useEffect } from "react";
 
 const ActivityPage = () => {
   const searchParams = useSearchParams();
-  const [getActitivies, activityResult] = useLazyGetActivityByIdQuery();
+  const [getActivity, activityResult] = useLazyGetActivityByIdMockQuery();
   const id = searchParams.get("id");
-  const activity = activityResult.data;
   const router = useRouter();
+  const htmlContent = activityResult.data?.htmlContent || "";
 
   useEffect(() => {
     if (id) {
-      getActitivies(id);
+      getActivity(id);
     }
   }, [id]);
 
@@ -52,24 +52,13 @@ const ActivityPage = () => {
               },
             ]}
           />
-          <h1 className="text-3xl font-bold text-gray-800 my-4">
-            {activity?.title}
-          </h1>
-          <div className="flex gap-4 flex-col">
-            {activity?.questions.map((question, index) => (
-              <>
-                <h2 className="text-xl font-bold text-gray-500 my-4">
-                  {index + 1}. {question.content}
-                </h2>
-                {question.alternatives.map((option, index) => (
-                  <div key={index} className="flex gap-2 items-center">
-                    <input type="radio" name="option" id={option.label} />
-                    <label htmlFor={option.label}>{option.label}</label>
-                  </div>
-                ))}
-              </>
-            ))}
-          </div>
+          <h1 className="text-3xl font-bold text-gray-800 my-4"></h1>
+
+          <div
+            id="content-div"
+            className="bg-gray-100 p-4"
+            dangerouslySetInnerHTML={{ __html: htmlContent }}
+          ></div>
         </div>
       </Container>
       <Footer />
