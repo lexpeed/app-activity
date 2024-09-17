@@ -18,6 +18,7 @@
     "serve": "serve out"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.4.0",
     "@reduxjs/toolkit": "^2.2.7",
     "axios": "1.7.2",
     "next": "14.2.5",

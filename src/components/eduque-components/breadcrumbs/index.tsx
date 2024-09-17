@@ -10,11 +10,12 @@ interface Props {
 
 const Breadcrumbs = ({ items }: Props) => {
   return (
-    <div className="breadcrumbs">
+    <div className="inline-flex gap-2">
       {items.map((item, index) => (
-        <span key={index}>
+        <>
           {index > 0 && <span className="text-gray-400"> / </span>}
           <span
+            key={item.label}
             onClick={item.onClick}
             className={`
               ${index === items.length - 1 ? "text-primary" : "text-gray-400"}
@@ -23,7 +24,7 @@ const Breadcrumbs = ({ items }: Props) => {
           >
             {item.label}
           </span>
-        </span>
+        </>
       ))}
     </div>
   );
