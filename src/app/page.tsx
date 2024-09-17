@@ -9,19 +9,29 @@ import {
   Button,
   Select,
 } from "@/components/eduque-components";
+import {
+  LaptopOutlined,
+  ExperimentOutlined,
+  CalculatorOutlined,
+  GlobalOutlined,
+} from "@ant-design/icons";
 
 const areas = [
   {
     description: "Linguagens, Códigos e suas Tecnologias",
+    icon: <LaptopOutlined />,
   },
   {
     description: "Ciências da Natureza e suas Tecnologias",
+    icon: <ExperimentOutlined />,
   },
   {
     description: "Matemática e suas Tecnologias",
+    icon: <CalculatorOutlined />,
   },
   {
     description: "Ciências Humanas e suas Tecnologias",
+    icon: <GlobalOutlined />,
   },
 ];
 
@@ -74,6 +84,9 @@ export default function Home() {
               <KnowledgeAreaCard
                 key={area.description}
                 description={area.description}
+                icon={
+                  <span className="text-secondary text-lg">{area.icon}</span>
+                }
               />
             ))}
           </div>
