@@ -1,7 +1,7 @@
 "use client";
 
 import { useLazyGetActivityByIdMockQuery } from "@/api/mock-api";
-import { Footer } from "@/components";
+import { Footer, SimpleHeader } from "@/components";
 import {
   Container,
   Breadcrumbs,
@@ -39,10 +39,6 @@ const ActivityPage = () => {
     }
   }, [id]);
 
-  const goToHome = () => {
-    router.push(appRoutes.home);
-  };
-
   const goToActivities = () => {
     router.push(appRoutes.activities);
   };
@@ -73,16 +69,7 @@ const ActivityPage = () => {
 
   return (
     <div className="py-2">
-      <header>
-        <Container>
-          <img
-            src="/images/eduque-purple-logo.svg"
-            alt="Purple Logo"
-            className="cursor-pointer"
-            onClick={goToHome}
-          />
-        </Container>
-      </header>
+      <SimpleHeader />
       <Container>
         <div className="py-3">
           <Breadcrumbs
