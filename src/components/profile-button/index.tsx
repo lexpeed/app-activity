@@ -3,7 +3,8 @@
 import { useOnClickOutside } from "@/hooks";
 import { UserOutlined } from "@ant-design/icons";
 import { useRef, useState } from "react";
-import { Popper } from "../eduque-components";
+import { Popper } from "@/components/eduque-components";
+import { useAuth } from "react-oidc-context";
 
 interface Props {
   variant?: "primary" | "secondary";
@@ -12,8 +13,17 @@ interface Props {
 const ProfileButton = ({ variant = "primary" }: Props) => {
   const [isPopperVisible, setPopperVisible] = useState(false);
   const userRef = useRef<HTMLInputElement>(null);
+  const auth = useAuth();
 
   useOnClickOutside(userRef, () => setPopperVisible(false));
+
+  const handleLogout = () => {
+    auth.signoutRedirect({
+      post_logout_redirect_uri: auth.settings.redirect_uri.concat(
+        window.location.pathname,
+      ),
+    });
+  };
 
   return (
     <div>
@@ -35,10 +45,7 @@ const ProfileButton = ({ variant = "primary" }: Props) => {
 
       <Popper anchorEl={userRef?.current} isOpen={isPopperVisible}>
         <div>
-          <MenuButton>Perfil</MenuButton>
-          <MenuButton>Perfil</MenuButton>
-          <MenuButton>Perfil</MenuButton>
-          <MenuButton>Perfil</MenuButton>
+          <MenuButton onClick={handleLogout}>Sair</MenuButton>
         </div>
       </Popper>
     </div>
@@ -47,11 +54,13 @@ const ProfileButton = ({ variant = "primary" }: Props) => {
 
 interface ButtonProps {
   children: string;
+  onClick?: () => void;
 }
 
-const MenuButton = ({ children }: ButtonProps) => {
+const MenuButton = ({ children, onClick }: ButtonProps) => {
   return (
     <button
+      onClick={onClick}
       className={`
         px-4 py-2
         rounded-md
