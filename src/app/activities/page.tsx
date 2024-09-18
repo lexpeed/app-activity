@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearchActivitiesQuery } from "@/api/activity/activity-api";
-import { ActivityResultCard, Footer } from "../../components";
+import { ActivityResultCard, Footer, SimpleHeader } from "../../components";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { appRoutes } from "@/utils";
@@ -34,16 +34,7 @@ const ActivitiesPage = () => {
 
   return (
     <div className="py-2">
-      <header>
-        <Container>
-          <img
-            src="/images/eduque-purple-logo.svg"
-            alt="Purple Logo"
-            className="cursor-pointer"
-            onClick={goToHome}
-          />
-        </Container>
-      </header>
+      <SimpleHeader />
       <Container>
         <div className="mt-8 py-3">
           <Breadcrumbs

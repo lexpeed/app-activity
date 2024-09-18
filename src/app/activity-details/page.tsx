@@ -1,7 +1,7 @@
 "use client";
 
 import { useLazyGetActivityByIdMockQuery } from "@/api/mock-api";
-import { Footer } from "@/components";
+import { Footer, SimpleHeader } from "@/components";
 import {
   Container,
   Breadcrumbs,
@@ -39,10 +39,6 @@ const ActivityPage = () => {
     }
   }, [id]);
 
-  const goToHome = () => {
-    router.push(appRoutes.home);
-  };
-
   const goToActivities = () => {
     router.push(appRoutes.activities);
   };
@@ -51,18 +47,29 @@ const ActivityPage = () => {
     router.back();
   };
 
+  const onDownloadWord = async () => {
+    const response = await fetch("/api/ms-word", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        html: htmlContent,
+        filename: "activity.docx",
+      }),
+    });
+
+    const blob = await response.blob();
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "activity.docx";
+    a.click();
+  };
+
   return (
     <div className="py-2">
-      <header>
-        <Container>
-          <img
-            src="/images/eduque-purple-logo.svg"
-            alt="Purple Logo"
-            className="cursor-pointer"
-            onClick={goToHome}
-          />
-        </Container>
-      </header>
+      <SimpleHeader />
       <Container>
         <div className="py-3">
           <Breadcrumbs
@@ -139,7 +146,7 @@ const ActivityPage = () => {
             `}
             >
               <span>{activityResult.data?.summary}</span>
-              <Button>Baixar em Word</Button>
+              <Button onClick={onDownloadWord}>Baixar em Word</Button>
               <div
                 className={`
                   flex
