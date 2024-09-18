@@ -9,7 +9,7 @@ import {
   Button,
 } from "@/components/eduque-components";
 import { appRoutes } from "@/utils";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 import {
   LeftOutlined,
@@ -27,17 +27,17 @@ const iconActions = [
 ];
 
 const ActivityPage = () => {
-  const searchParams = useSearchParams();
   const [getActivity, activityResult] = useLazyGetActivityByIdMockQuery();
-  const id = searchParams.get("id");
   const router = useRouter();
   const htmlContent = activityResult.data?.htmlContent || "";
+  const params = useParams();
 
   useEffect(() => {
+    const id = params.id as string;
     if (id) {
       getActivity(id);
     }
-  }, [id]);
+  }, [params, getActivity]);
 
   const goToActivities = () => {
     router.push(appRoutes.activities);

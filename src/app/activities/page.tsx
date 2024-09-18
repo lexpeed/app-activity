@@ -25,7 +25,7 @@ const ActivitiesPage = () => {
   );
 
   const goToActivity = (activityId: string) => {
-    router.push(`${appRoutes.activityDetails}?id=${activityId}`);
+    router.push(`${appRoutes.activities}/${activityId}`);
   };
 
   const goToHome = () => {
