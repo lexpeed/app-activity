@@ -51,6 +51,26 @@ const ActivityPage = () => {
     router.back();
   };
 
+  const onDownloadWord = async () => {
+    const response = await fetch("/api/ms-word", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        html: htmlContent,
+        filename: "activity.docx",
+      }),
+    });
+
+    const blob = await response.blob();
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "activity.docx";
+    a.click();
+  };
+
   return (
     <div className="py-2">
       <header>
@@ -139,7 +159,7 @@ const ActivityPage = () => {
             `}
             >
               <span>{activityResult.data?.summary}</span>
-              <Button>Baixar em Word</Button>
+              <Button onClick={onDownloadWord}>Baixar em Word</Button>
               <div
                 className={`
                   flex
