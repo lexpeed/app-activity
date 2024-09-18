@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 interface Props {
   children: React.ReactNode;
@@ -12,7 +12,7 @@ const Popper = ({ children, anchorEl, isOpen }: Props) => {
   const [position, setPosition] = useState({ top: 0, left: 0 });
 
   useEffect(() => {
-    if (anchorEl && isOpen) {
+    if (anchorEl) {
       const { top, left, height, width } = anchorEl.getBoundingClientRect();
       const arrowSize = 8;
       const newLeft = left + width / 2;
