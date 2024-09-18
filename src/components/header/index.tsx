@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useAuth } from "react-oidc-context";
 import { Button } from "@/components/eduque-components";
+import ProfileButton from "../profile-button";
 
 const Header = () => {
   const auth = useAuth();
@@ -55,17 +56,21 @@ const Header = () => {
             </Button>
           </div>
         ) : (
-          <Button
-            onClick={() =>
-              auth.signoutRedirect({
-                post_logout_redirect_uri: auth.settings.redirect_uri.concat(
-                  window.location.pathname,
-                ),
-              })
-            }
-          >
-            Sair
-          </Button>
+          <div className="flex items-center gap-4">
+            {auth.isAuthenticated && (
+              <>
+                <span
+                  className={`
+                    text-white
+                    font-bold
+                  `}
+                >
+                  Bem-Vindo, {auth.user?.profile.given_name}{" "}
+                </span>
+                <ProfileButton />
+              </>
+            )}
+          </div>
         )}
       </div>
 

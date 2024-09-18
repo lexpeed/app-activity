@@ -6,11 +6,7 @@ import { useRef, useState } from "react";
 import { Popper } from "@/components/eduque-components";
 import { useAuth } from "react-oidc-context";
 
-interface Props {
-  variant?: "primary" | "secondary";
-}
-
-const ProfileButton = ({ variant = "primary" }: Props) => {
+const ProfileButton = () => {
   const [isPopperVisible, setPopperVisible] = useState(false);
   const userRef = useRef<HTMLInputElement>(null);
   const auth = useAuth();
@@ -37,7 +33,6 @@ const ProfileButton = ({ variant = "primary" }: Props) => {
           text-primary text-2xl
           flex items-center justify-center
           cursor-pointer
-          ${variant === "primary" ? "bg-primary text-secondary" : "bg-secondary text-primary"}
         `}
       >
         <UserOutlined />
