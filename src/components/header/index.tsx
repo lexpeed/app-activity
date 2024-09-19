@@ -7,7 +7,6 @@ import ProfileButton from "../profile-button";
 
 const Header = () => {
   const auth = useAuth();
-  console.log(auth);
 
   return (
     <header className="bg-primary p-6 flex flex-col gap-8 items-center">
