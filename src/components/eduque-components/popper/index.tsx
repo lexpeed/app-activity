@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 interface Props {
   children: React.ReactNode;
@@ -26,7 +26,6 @@ const Popper = ({ children, anchorEl, isOpen }: Props) => {
       className={`
         bg-gray-50 shadow-lg rounded-sm
         absolute z-10
-        transition-all duration-300
         transform -translate-x-1/2
         ${isOpen ? "opacity-100" : "opacity-0 pointer-events-none"}
         ${isOpen ? "scale-100" : "scale-95"}
@@ -34,6 +33,7 @@ const Popper = ({ children, anchorEl, isOpen }: Props) => {
       style={{
         top: position.top,
         left: position.left,
+        transition: "opacity 0.3s, transform 0.3s",
       }}
     >
       <div
