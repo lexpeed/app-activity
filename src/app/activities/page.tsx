@@ -25,7 +25,7 @@ const ActivitiesPage = () => {
   );
 
   const goToActivity = (activityId: string) => {
-    router.push(`${appRoutes.activityDetails}?id=${activityId}`);
+    router.push(`${appRoutes.activities}/${activityId}`);
   };
 
   const goToHome = () => {
@@ -90,7 +90,7 @@ const ActivitiesPage = () => {
               >
                 {filteredActivities.map((activity, index) => (
                   <ActivityResultCard
-                    key={index}
+                    key={activity.id}
                     tags={activity.tags}
                     onClick={() => goToActivity(activity.id)}
                   >

@@ -12,7 +12,7 @@ const Breadcrumbs = ({ items }: Props) => {
   return (
     <div className="inline-flex gap-2">
       {items.map((item, index) => (
-        <>
+        <div key={index}>
           {index > 0 && <span className="text-gray-400"> / </span>}
           <span
             key={item.label}
@@ -24,7 +24,7 @@ const Breadcrumbs = ({ items }: Props) => {
           >
             {item.label}
           </span>
-        </>
+        </div>
       ))}
     </div>
   );
