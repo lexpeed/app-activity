@@ -1,36 +1,38 @@
-"use client";
+'use client';
 
-import { Footer, SimpleHeader } from "@/components";
+import { Footer, SimpleHeader } from '@/components';
 import {
   Container,
   Breadcrumbs,
   Tag,
   Button,
-} from "@/components/eduque-components";
-import { appRoutes } from "@/utils";
-import { useParams, useRouter } from "next/navigation";
-import { useEffect } from "react";
+} from '@/components/eduque-components';
+import { appRoutes } from '@/utils';
+import { useParams, useRouter } from 'next/navigation';
+import { useEffect } from 'react';
+import { useAuth } from 'react-oidc-context';
 import {
   LeftOutlined,
   HeartOutlined,
   PrinterOutlined,
   ShareAltOutlined,
   NotificationOutlined,
-} from "@ant-design/icons";
-import { useLazyGetActivityByIdQuery } from "@/api/activity/activity-api";
+} from '@ant-design/icons';
+import { useLazyGetActivityByIdQuery } from '@/api/activity/activity-api';
 
 const iconActions = [
-  { icon: <HeartOutlined />, label: "Favoritar" },
-  { icon: <PrinterOutlined />, label: "Imprimir" },
-  { icon: <ShareAltOutlined />, label: "Compartilhar" },
-  { icon: <NotificationOutlined />, label: "Notificar" },
+  { icon: <HeartOutlined />, label: 'Favoritar' },
+  { icon: <PrinterOutlined />, label: 'Imprimir' },
+  { icon: <ShareAltOutlined />, label: 'Compartilhar' },
+  { icon: <NotificationOutlined />, label: 'Notificar' },
 ];
 
 const ActivityPage = () => {
   const [getActivity, activityResult] = useLazyGetActivityByIdQuery();
   const router = useRouter();
-  const htmlContent = activityResult.data?.htmlContent || "";
+  const htmlContent = activityResult.data?.htmlContent || '';
   const params = useParams();
+  const auth = useAuth();
 
   useEffect(() => {
     const id = params.id as string;
@@ -48,22 +50,22 @@ const ActivityPage = () => {
   };
 
   const onDownloadWord = async () => {
-    const response = await fetch("/api/ms-word", {
-      method: "POST",
+    const response = await fetch('/api/ms-word', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         html: htmlContent,
-        filename: "activity.docx",
+        filename: 'activity.docx',
       }),
     });
 
     const blob = await response.blob();
     const url = window.URL.createObjectURL(blob);
-    const a = document.createElement("a");
+    const a = document.createElement('a');
     a.href = url;
-    a.download = "activity.docx";
+    a.download = 'activity.docx';
     a.click();
   };
 
@@ -74,10 +76,10 @@ const ActivityPage = () => {
         <div className="py-3">
           <Breadcrumbs
             items={[
-              { label: "Home", url: "/" },
+              { label: 'Home', url: '/' },
               {
-                label: "Activities",
-                url: "/activities",
+                label: 'Activities',
+                url: '/activities',
                 onClick: goToActivities,
               },
             ]}
@@ -146,7 +148,22 @@ const ActivityPage = () => {
             `}
             >
               <span>{activityResult.data?.title}</span>
-              <Button onClick={onDownloadWord}>Baixar em Word</Button>
+              {auth.isAuthenticated ? (
+                <Button onClick={onDownloadWord}>Baixar em Word</Button>
+              ) : (
+                <Button
+                  onClick={() =>
+                    auth.signinRedirect({
+                      redirect_uri: auth.settings.redirect_uri.concat(
+                        window.location.pathname
+                      ),
+                    })
+                  }
+                >
+                  Baixar em Word
+                </Button>
+              )}
+
               <div
                 className={`
                   flex
