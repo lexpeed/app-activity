@@ -11,6 +11,6 @@ export interface SearchActivity {
 
 export interface ActivityDetails {
   htmlContent: string;
-  summary: string;
+  title: string;
   tags: Tag[];
 }

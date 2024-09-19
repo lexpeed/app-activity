@@ -90,7 +90,7 @@ const ActivitiesPage = () => {
               >
                 {filteredActivities.map((activity, index) => (
                   <ActivityResultCard
-                    key={index}
+                    key={activity.id}
                     tags={activity.tags}
                     onClick={() => goToActivity(activity.id)}
                   >

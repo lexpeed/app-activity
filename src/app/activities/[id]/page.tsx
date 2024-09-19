@@ -1,6 +1,5 @@
 "use client";
 
-import { useLazyGetActivityByIdMockQuery } from "@/api/mock-api";
 import { Footer, SimpleHeader } from "@/components";
 import {
   Container,
@@ -9,7 +8,7 @@ import {
   Button,
 } from "@/components/eduque-components";
 import { appRoutes } from "@/utils";
-import { useParams, useRouter, useSearchParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { useEffect } from "react";
 import {
   LeftOutlined,
@@ -18,6 +17,7 @@ import {
   ShareAltOutlined,
   NotificationOutlined,
 } from "@ant-design/icons";
+import { useLazyGetActivityByIdQuery } from "@/api/activity/activity-api";
 
 const iconActions = [
   { icon: <HeartOutlined />, label: "Favoritar" },
@@ -27,7 +27,7 @@ const iconActions = [
 ];
 
 const ActivityPage = () => {
-  const [getActivity, activityResult] = useLazyGetActivityByIdMockQuery();
+  const [getActivity, activityResult] = useLazyGetActivityByIdQuery();
   const router = useRouter();
   const htmlContent = activityResult.data?.htmlContent || "";
   const params = useParams();
@@ -145,7 +145,7 @@ const ActivityPage = () => {
               min-w-56
             `}
             >
-              <span>{activityResult.data?.summary}</span>
+              <span>{activityResult.data?.title}</span>
               <Button onClick={onDownloadWord}>Baixar em Word</Button>
               <div
                 className={`
